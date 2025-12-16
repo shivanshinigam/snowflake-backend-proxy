@@ -1,4 +1,5 @@
-FROM public.ecr.aws/snowflake/snowpark-python:latest
+FROM public.ecr.aws/snowflake/snowpark-python:3.10
+
 
 WORKDIR /app
 
