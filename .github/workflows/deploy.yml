@@ -15,9 +15,10 @@ jobs:
       - name: Login to Snowflake Registry
         run: |
           echo "${{ secrets.SNOWFLAKE_PASSWORD }}" | docker login \
-          wbauoba-qf14503.registry.snowflakecomputing.com \
-          -u ${{ secrets.SNOWFLAKE_USER }} \
-          --password-stdin
+            wbauoba-qf14503.registry.snowflakecomputing.com \
+            --username ${{ secrets.SNOWFLAKE_USER }} \
+            --password-stdin
+
 
       - name: Build and Push Image
         run: |
