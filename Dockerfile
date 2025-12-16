@@ -1,11 +1,15 @@
-FROM public.ecr.aws/snowflake/snowpark-python:3.10
-
+FROM python:3.10-slim
 
 WORKDIR /app
 
-COPY app /app
+# Install Snowpark + runtime deps
+RUN pip install --no-cache-dir \
+    snowflake-snowpark-python \
+    fastapi \
+    uvicorn \
+    pandas
 
-RUN pip install --no-cache-dir fastapi uvicorn pandas
+COPY app /app
 
 EXPOSE 8080
 
